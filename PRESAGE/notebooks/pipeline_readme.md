@@ -1,4 +1,4 @@
-# PRESAGE Training Pipeline — End-to-End Guide
+# PRESAGE Training Pipeline Guide
 
 This document walks through the full pipeline from raw data to predictions, covering each step in order.
 
@@ -337,51 +337,5 @@ python presage_pbulk_train.py \
 | `pplus` | Target cell type only | Single-context with different prior config |
 
 For `kpdp`, other cell types' perturbation data is always included in the training set. The K-fold split (HPO) or train/test split (final) applies only to the target cell type's perturbations.
-
----
-
-## Full Example: K562 kpdp, TF=10%, stratified split
-
-```bash
-# Stage 1: Data prep for HPO
-python prepare_presage_data_memopt_scdata.py \
-    --scdata_file data/merged_sc.h5ad \
-    --split_col K562_TF_10_UF_10_rs_2_stratified \
-    --target_name K562 --stage hpo --variant kpdp \
-    --mode target_fold_5 --skip_degs \
-    --prior_type all --prior_by_group cell_type \
-    --n_nmf_embedding 128 \
-    --output_dir data/hpo_kpdp_K562_TF_10_UF_10_rs_2_stratified/
-
-# Stage 2: HPO
-python presage_pbulk_train.py \
-    --stage hpo --variant kpdp \
-    --prepared_dir data/hpo_kpdp_K562_TF_10_UF_10_rs_2_stratified/ \
-    --ds_config_file configs/ds_config.json \
-    --hpo_num_folds 5 \
-    --hpo_search_space configs/search_space.json \
-    --n_optuna_trials 50
-
-# Stage 3: Check HPO results, determine num_epochs
-# -> e.g., best epoch = 25
-
-# Stage 4: Data prep for final
-python prepare_presage_data_memopt_scdata.py \
-    --scdata_file data/merged_sc.h5ad \
-    --split_col K562_TF_10_UF_10_rs_2_stratified \
-    --target_name K562 --stage final --variant kpdp \
-    --mode None --skip_degs \
-    --prior_type all --prior_by_group cell_type \
-    --n_nmf_embedding 128 \
-    --output_dir data/final_kpdp_K562_TF_10_UF_10_rs_2_stratified/
-
-# Stage 5: Final training + prediction
-python presage_pbulk_train.py \
-    --stage final --variant kpdp --use_scheduler \
-    --prepared_dir data/final_kpdp_K562_TF_10_UF_10_rs_2_stratified/ \
-    --ds_config_file configs/ds_config.json \
-    --hpo_num_folds 1 \
-    --hpo_search_space configs/final_hparams_25ep.json
-```
 
 ---
