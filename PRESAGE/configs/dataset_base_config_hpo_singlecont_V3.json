@@ -1,0 +1,15 @@
+{
+  "model_weight_decay":1.0e-15,
+  "model_lr":1.23e-3,
+  "model_prior_type":"all",
+  "model_prior_by_group":"None",
+  "model_pathway_files":"/home/jl_fs/PRESAGE/sample_files/prior_files/sample.knowledge_experimental.txt",
+  "model_context_emb_path":"None",
+  "data_batch_size":16,
+  "data_use_pseudobulk":true,
+  "data_preprocessing_zscore":false,
+  "data_perturb_field":"perturbation",
+  "data_control_key":"non-targeting",
+  "data_celltype_key":"cell_type",
+  "data_perturb_group_key":"perturbation_group"
+}
