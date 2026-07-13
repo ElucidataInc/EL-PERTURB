@@ -388,6 +388,6 @@ if __name__ == "__main__":
         param_grid=param_grid,
         embedding_paths=embedding_paths,
         use_data_prior=True,
-        data_prior_weight=0.9,
+        data_prior_weight=0.5,
         n_folds=5,
     )
