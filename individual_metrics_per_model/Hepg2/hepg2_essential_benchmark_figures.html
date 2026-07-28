@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HepG2 Essential-Gene Benchmark Figures</title>
+<style>
+  body {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+  h1 {
+    font-size: 1.6rem;
+    border-bottom: 2px solid #222;
+    padding-bottom: 8px;
+  }
+  figure {
+    margin: 40px 0;
+  }
+  figure img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  figcaption {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  figcaption b {
+    color: #111;
+  }
+</style>
+</head>
+<body>
+
+<h1>HepG2 Essential-Gene Benchmark — Supporting Figures</h1>
+
+<figure>
+  <img src="hepg2_essential_benchmark_main_random.png" alt="Essential genes HepG2 - Random split, seen vs unseen global score by model and training fraction">
+  <figcaption>
+    <b>Figure 1.</b> Global Score for the essential-gene HepG2 benchmark under a <b>random split</b>,
+    shown separately for seen and unseen test perturbations across training fractions of 10%, 30%, and 50%.
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="hepg2_essential_benchmark_ood_gap.png" alt="Essential genes HepG2 - Test unseen, random vs stratified split, percent OOD gap by model and training fraction">
+  <figcaption>
+    <b>Figure 2.</b> Global Score on test-unseen perturbations, comparing <b>random vs. stratified splits</b>,
+    with the percentage OOD gap annotated per model and training fraction (10%, 30%, 50%).
+  </figcaption>
+</figure>
+
+</body>
+</html>
