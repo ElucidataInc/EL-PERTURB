@@ -1,0 +1,3 @@
+The tables uploaded provide the complete evaluation results (individual metrics, global and specificity scores) across all models for the Hepg2 essential genes dataset
+HEPG2_ESS_R = metrics on HEPG2 essential genes dataset, Random Split 
+HEPG2_ESS_S = metrics on HEPG2 essential genes dataset, Stratified Split 
