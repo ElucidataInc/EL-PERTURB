@@ -1,0 +1,5 @@
+The tables uploaded provide the complete evaluation results (individual metrics, global and specificity scores) across all models for the K562 essential gene and K562 GW datasets
+K562_ESS_R = metrics on K562 essential genes dataset, Random Split 
+K562_ESS_S = metrics on K562 essential genes dataset, Stratified Split 
+K562_GW_R = metrics on K562 genome wide dataset, Random Split 
+K562_GW_S = metrics on K562 genome wide dataset, Stratified Split 
